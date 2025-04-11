@@ -1,14 +1,27 @@
 package edu.icet.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
+import edu.icet.util.BookingType;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "bookings")
+@Setter
+@Getter
 public class Booking {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-    private enum type;
+    private Long id;
+    private BookingType type;
+    private Date fromDate;
+    private Date toDate;
+    private Integer numberOfPeople;
+    private Double price;
+    private String description;
+
 }
