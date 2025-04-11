@@ -1,0 +1,44 @@
+.mainCont{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    /* grid-template-columns: repeat(2,1fr); */
+}
+.leftCont{
+width: 60%;
+display: flex;
+background-color: aquamarine;
+}
+.searchCont{
+    margin: 40px 20px;
+}
+.btnSearch{
+    border: none;
+    margin-left: 10px;
+}
+#inpSearch{
+    width: 200px;
+    height: 25px;
+    background-color: #585A59;
+    border: 1px solid rgb(61, 161, 128);
+    color: #02fd7f;
+}
+
+.rightCont{
+    width: 100%;
+    display: flex;
+    
+    background-color: rgb(61, 161, 128);
+}
+
+@media screen and (max-width:768px) {
+    
+}
+@media screen and (max-width:468px) {
+    .mainCont{
+        display: flex;
+        flex-direction: column;
+    }
+}

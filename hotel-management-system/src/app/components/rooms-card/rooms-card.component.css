@@ -1,0 +1,66 @@
+.roomCard{
+    display: flex;
+    flex-direction: row;
+    background-color: #585A59;
+    width: 300px;
+    height: 180px;
+    margin: 10px;
+}
+ .roomCard .imgCont{
+    width: 100px;
+    height: 100%;
+    /* background-color: aqua; */
+ }
+ .roomCard .imgCont img{
+    margin-top: 20px;
+    width: 50px;
+    height: 50px;
+ }
+ .roomCard .imgCont .btnBook{
+    margin-top: 100px;
+    margin-left: 10px;
+ }
+ .roomCard .statusCont{
+    width: 80px;
+    height: 100%;
+    /* background-color: rgb(32, 90, 90); */
+ }
+ .roomCard .statusCont .statCircle{
+    display: flex;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    background-color: #043F1F;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+ }
+ .roomCard .statusCont .statCircle span{
+   color: #52F99D;
+ }
+ .roomCard .detailCont{
+    width: 120px;
+    height: 100%;
+    /* background-color: aqua; */
+    font: .7em sans-serif;
+    font-weight: 600;
+    color: #022612;
+ }
+ .contDet{
+    margin-top: 30px;
+ }
+
+ .roomCard .detailCont .spnPrc{
+    padding: 10px;
+    color: #52F99D;
+    font-size: large;
+ }
+ #duration{
+    margin-top: 10px;
+    margin-left: 40px;
+ }
+
+ .btnBook{
+    background-color: #043F1F;
+    border-radius: 4px;
+ }

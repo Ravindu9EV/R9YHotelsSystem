@@ -1,0 +1,19 @@
+
+<div type="form" class="loginForm">
+  <h1></h1>
+  <input
+    type="text"
+    name=""
+    placeholder="Username"
+    id="username"
+    [(ngModel)]="credentials.username"
+    required
+  />
+  <input
+    type="password"
+    placeholder="Password"
+    [(ngModel)]="credentials.password"
+    required
+  />
+  <button type="submit" (click)="login()">Login</button>
+</div>

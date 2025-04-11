@@ -1,0 +1,30 @@
+.left{
+   position: fixed;
+    width: 15%;
+    height: 100vh;
+    background-color: #4FBC80;
+    display: flex;
+    flex-direction: row;
+    margin-left: -8px;
+    margin-top: -8px;
+    
+}
+.right{
+   position: fixed;
+    width: 85.2%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background-color: #2a4034;
+    margin-left: 14.3%;
+    margin-top: -8px;
+}
+.mainCont{
+    
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction:row;
+    margin-top: -10px;
+    justify-content: space-between;
+}

@@ -1,0 +1,14 @@
+<div class="navbar">
+  <nav>
+    <ul>
+      <li><a [routerLink]="['/']">Home</a></li>
+      <li><a [routerLink]="['/booking']">Booking</a></li>
+      <li><a [routerLink]="['/rooms']">Rooms</a></li>
+      <li><a [routerLink]="['/rooms']">Party Spaces</a></li>
+      <li><a>Foods</a></li>
+    </ul>
+    <div *ngIf="authService.isAuthenticated()">
+      <button (click)="logout()" id="btnLogout">Logout</button>
+    </div>
+  </nav>
+</div>

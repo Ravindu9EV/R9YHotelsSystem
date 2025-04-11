@@ -1,0 +1,18 @@
+.loginPg{
+    background:linear-gradient( to bottom,#043F1F,#363737);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.logCont{
+    justify-content: center;
+  
+}
+.loginPg h1{
+    margin-left: 35vw;
+    display: inline-block;
+    background: linear-gradient( to bottom right ,#0BF273 50%,#1c6a3f 40%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

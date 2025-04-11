@@ -1,0 +1,34 @@
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #585A59;
+    width: 40%;
+    margin-left: 22vw;
+    backdrop-filter: blur(20);
+    padding: 25px 10px;
+    border-radius: 20px;
+}
+
+.loginForm input{
+    width: 250px;
+    height: 30px;
+    margin: 10px 25px;
+    background-color: rgb(41, 39, 39);
+    color: #52F99D;
+}
+
+.loginForm button{
+    border: 1px solid #76ffbb;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 70px;
+    height: 30px;
+    background: linear-gradient(to bottom,#4cd389,#013d1c);
+    color: #02fd7f;
+}
+
+.loginForm button:hover{
+    background: linear-gradient(to bottom,#013d1c,#52F99D);
+}
