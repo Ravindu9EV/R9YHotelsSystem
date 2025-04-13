@@ -1,28 +1,30 @@
-
-<div type="form" class="bookingForm">
+<div type="form" class="bookingForm" form-control>
   <div class="row">
     <label for="inpFrom">From: </label>
-    <input type="text" name="" id="inpFrom" />
+    <input type="date" name="" id="inpFrom" [(ngModel)]="fromDate" />
   </div>
   <div class="row">
     <label for="inpTo">To: </label>
-    <input type="text" name="" id="inpTo" />
+    <input type="date" name="" id="inpTo" [(ngModel)]="toDate" />
   </div>
   <div class="row">
     <label for="inpPeople">People: </label>
-    <input type="number" name="" id="inpPeople" />
+    <input type="number" name="" id="inpPeople" [(ngModel)]="numberOfPeople" />
   </div>
   <div class="row">
-    <label for="inpItemId">Item ID: </label>
-    <input type="text" name="" id="inpItemId" />
+    <label for="inpItemId">Booking Type: </label>
+    <select name="" id="" (click)="showV()" [(ngModel)]="bookingType">
+      <option value="ROOM">ROOM</option>
+      <option value="PARTY_SPACE">PARTY_SPACE</option>
+    </select>
   </div>
   <div class="row">
     <label for="inpPrice">Price: </label>
-    <input type="text" name="" id="inpPrice" />
+    <input type="text" name="" id="inpPrice" [(ngModel)]="price" />
   </div>
   <div class="row">
     <label for="inpDescrp">Description: </label>
-    <input type="text" name="" id="inpDescrp" />
+    <input type="text" name="" id="inpDescrp" [(ngModel)]="description" />
   </div>
-  <button class="btnConfirm">Confirm</button>
+  <button class="btnConfirm" (click)="book()">Confirm</button>
 </div>

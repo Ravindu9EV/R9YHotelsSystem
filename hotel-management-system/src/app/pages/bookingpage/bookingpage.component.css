@@ -17,6 +17,8 @@ background-color: aquamarine;
 .btnSearch{
     border: none;
     margin-left: 10px;
+    width: 60px;
+    border-radius: 10px;
 }
 #inpSearch{
     width: 200px;

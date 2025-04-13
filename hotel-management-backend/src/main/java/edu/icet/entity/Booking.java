@@ -13,11 +13,13 @@ import java.util.Date;
 @Table(name = "bookings")
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private BookingType type;
+    private BookingType bookingType;
     private Date fromDate;
     private Date toDate;
     private Integer numberOfPeople;

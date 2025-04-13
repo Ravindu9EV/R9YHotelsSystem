@@ -10,6 +10,10 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.util.Base64;
 import java.util.Date;
 
@@ -19,11 +23,28 @@ public class JwtTokenProvider {
     private long expirationTime;
 
 //    @Value("${jwt.secret}")
-      private  SecretKey secretKey;
+     // private  SecretKey secretKey;
 //
 
-    public JwtTokenProvider(SecretKey secretKey){
-        this.secretKey=generateSecretKey();
+    private PrivateKey privateKey;
+    private PublicKey publicKey;
+
+//    public JwtTokenProvider(SecretKey secretKey){
+//        this.secretKey=generateSecretKey();
+//    }
+    @PostConstruct
+    public void init(){
+//        secretKey=generateSecretKey();
+        try{
+            KeyPairGenerator keyGen=KeyPairGenerator.getInstance("RSA");
+            keyGen.initialize(2048);
+            KeyPair keyPair=keyGen.generateKeyPair();
+            this.privateKey=keyPair.getPrivate();
+            this.publicKey=keyPair.getPublic();
+
+        }catch (Exception e){
+            throw new RuntimeException(e.getMessage());
+        }
     }
     //Generate a dynamic key
     private SecretKey  generateSecretKey(){
@@ -42,8 +63,9 @@ public class JwtTokenProvider {
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis()+expirationTime))
-                .signWith(SignatureAlgorithm.HS256,secretKey)
+                .setExpiration(new Date(System.currentTimeMillis()+7*24*60*60*1000))
+                //.signWith(SignatureAlgorithm.HS256,secretKey)
+                .signWith(privateKey,SignatureAlgorithm.RS256)
                 .compact();
     }
 
@@ -51,7 +73,7 @@ public class JwtTokenProvider {
     public Date getExpirationDateFromToken(String token){
         try{
             JwtParser jwtParser= Jwts.parser()
-                    .setSigningKey(secretKey).build();
+                    .setSigningKey(publicKey).build();
 
                  return    jwtParser.parseClaimsJws(token)
                     .getBody()
@@ -67,23 +89,37 @@ public class JwtTokenProvider {
     public String getUsernameFormToken(String token){
         try{
             JwtParser jwtParser = Jwts.parser()
-                    .setSigningKey(secretKey)
+                    .setSigningKey(publicKey)
                     .build();
             return jwtParser.parseClaimsJws(token)
                     .getBody()
                     .getSubject();
-        }catch (JwtException e){
+        }catch(ExpiredJwtException e){
+            throw new RuntimeException(e.getMessage());
+        } catch(JwtException e){
             throw new RuntimeException("Invalid or Expired JWT token",e);
         }
     }
     //validate token
     public boolean validateToken(String token,UserDetails userDetails){
-        final String username=getUsernameFormToken(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+//        final String username=getUsernameFormToken(token);
+//        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+       try{
+            Claims claims=Jwts.parser().setSigningKey(publicKey)
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+            return claims.getSubject().equals(userDetails.getUsername());
+        }catch (ExpiredJwtException e){
+            return false;
+        }catch (JwtException e){
+            return false;
+        }
     }
 
     private boolean isTokenExpired(String token) {
         return getExpirationDateFromToken(token).before(new Date());
     }
+
 
 }

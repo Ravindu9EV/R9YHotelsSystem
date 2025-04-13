@@ -1,8 +1,8 @@
 <div class="mainCont">
   <div class="leftCont">
     <div class="searchCont">
-      <input type="text" name="" id="inpSearch" />
-      <button class="btnSearch">
+      <input type="text" name="" id="inpSearch" [(ngModel)]="txtSearch" />
+      <button class="btnSearch" (click)="search()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
