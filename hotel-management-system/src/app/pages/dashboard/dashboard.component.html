@@ -1,3 +1,7 @@
 <p>dashboard works!</p>
-
+<p>asasasascnacsamcamcanc asc cmnnjnandasl</p>
 <!-- <router-outlet></router-outlet> -->
+<button (click)="openRoomForm()">Add Room</button>
+<button (click)="openRoomForm(editingRoom)">Update Room</button>
+
+<app-room-form *ngIf="isFormVisible" [room]="editingRoom"></app-room-form>

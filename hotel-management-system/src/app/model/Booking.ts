@@ -6,6 +6,8 @@ export class Booking {
   private numberOfPeople: number;
   private price: number;
   private description: string;
+  private status:string;
+  private username:string;
 
   constructor(
     id: number,
@@ -14,7 +16,9 @@ export class Booking {
     toDate: string,
     numberOfPeople: number,
     price: number,
-    description: string
+    description: string,
+    status:string,
+    username:string
   ) {
     this.id = id;
     this.bookingType = bookingType;
@@ -23,6 +27,8 @@ export class Booking {
     this.numberOfPeople = numberOfPeople;
     this.price = price;
     this.description = description;
+    this.status=status;
+    this.username=username;
   }
   public getId(): number {
     return this.id;
@@ -44,6 +50,9 @@ export class Booking {
   }
   public getDescription(): string {
     return this.description;
+  }
+  public getStatus():string{
+    return this.status;
   }
 
   public setId(id: number) {
@@ -68,5 +77,14 @@ export class Booking {
   public setDescription(description:string){
     this.description=description;
   }
+  public setStatus(status:string){
+    this.status=status;
+  }
   
+  public getUsername():string{
+    return this.username;
+  }
+  public setUsername(username:string){
+    this.username=username;
+  }
 }

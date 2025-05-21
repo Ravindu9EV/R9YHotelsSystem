@@ -42,7 +42,7 @@ public class SecurityConfig {
         http.csrf(customizer->customizer.disable())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request->request
-                        .requestMatchers("/api/login","/api/register").permitAll()
+                        .requestMatchers("/api/login","/customer/register").permitAll()
                         .requestMatchers("/api/booking/save").authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

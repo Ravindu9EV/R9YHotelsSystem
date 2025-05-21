@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name="users")
 @Setter
@@ -22,4 +24,6 @@ public class User {
     private String password;
     private  String role;
 
+    @OneToMany
+    private List<Booking> bookings;
 }

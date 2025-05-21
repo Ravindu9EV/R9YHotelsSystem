@@ -1,5 +1,6 @@
 package edu.icet.dto;
 
+import edu.icet.util.BookingStatus;
 import edu.icet.util.BookingType;
 import lombok.*;
 
@@ -17,4 +18,6 @@ public class BookingDTO {
     private Integer numberOfPeople;
     private Double price;
     private String description;
+    private BookingStatus status;
+    private Long user_id;
 }

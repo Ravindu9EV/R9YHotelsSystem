@@ -20,6 +20,7 @@ export class LoginComponent {
     this.authService.login(this.credentials).subscribe((response) => {
       if (response.token) {
         this.authService.storeToken(response.token);
+        this.authService.storeUsername(this.credentials.username);
         this.router.navigate(['']);
         alert('login Success!');
         console.log(response.token);

@@ -1,1 +1,33 @@
-<p>registration-form works!</p>
+<div class="regForm" form-control>
+  <div class="rowForm">
+    <label for="username">UserName</label>
+    <input type="text" name="" id="username" [(ngModel)]="username" />
+  </div>
+  <div class="rowForm">
+    <label for="userPassword">Password</label>
+    <input type="password" name="" id="userPassword" [(ngModel)]="password" />
+  </div>
+  <div class="rowForm">
+    <label for="userEmail">Email</label>
+    <input type="text" name="" id="userEmail" [(ngModel)]="email" />
+  </div>
+  <div class="rowForm">
+    <label for="userPhone">Phone</label>
+    <input type="text" name="" id="userPhone" [(ngModel)]="phone" />
+  </div>
+  <div class="rowForm">
+    <label for="userAddresss">Address</label>
+    <input type="text" name="" id="userAddress" [(ngModel)]="address" />
+  </div>
+  <div class="rowForm">
+    <label for="userAge">Age</label>
+    <input type="number" name="" id="userAge" [(ngModel)]="age" min="0" />
+  </div>
+  <input
+    type="submit"
+    name=""
+    id="btnReg"
+    value="Register"
+    (click)="register()"
+  />
+</div>

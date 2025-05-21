@@ -28,7 +28,9 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public ResponseEntity<CustomerDTO> saveCustomer(CustomerDTO customerDTO) {
         try{
-            Customer customer=mapper.map(customerDTO,Customer.class);
+
+           // Customer customer=mapper.map(customerDTO,Customer.class);
+            Customer customer=new Customer(null, customerDTO.getUsername(), customerDTO.getPassword(), customerDTO.getEmail(), customerDTO.getPhone(), customerDTO.getAddress(), customerDTO.getAge());
             log.info(""+customerDTO);
             if(customerDTO.getUsername()==null || customerDTO.getUsername().isEmpty() || customerDTO.getEmail()==null ||customerDTO.getEmail().isEmpty() || customerDTO.getPassword()==null || customerDTO.getPassword().isEmpty() ){
                 log.info("One field is Null");
@@ -36,8 +38,10 @@ public class CustomerServiceImpl implements CustomerService{
 
             }
 
-            System.out.println(customer);
-            this.repo.save(customer);
+            System.out.println("Hi"+customer);
+            customer=this.repo.save(customer);
+            customerDTO.setId(customer.getId());
+            System.out.println("SAved"+customer);
             return ResponseEntity.ok(customerDTO);
         }catch (Exception e) {
             log.info(String.valueOf(customerDTO));

@@ -1,18 +1,20 @@
-<div class="roomCard">
+<div *ngFor="let room of rooms" class="roomCard">
   <div class="imgCont">
     <img src="" alt="room.png" />
     <button class="btnBook">Book</button>
   </div>
   <div class="statusCont">
     <div class="statCircle">
-      <span>Available</span>
+      <span>{{ room.getIs_booked() ? "Booked" : "Available" }}</span>
     </div>
   </div>
   <div class="detailCont">
     <div class="contDet">
-      <span id="txtDescrp">hashldd ashshgd</span><br />
-      <span id="packs">Packs</span><br />
-      <span class="spnPrc">$ <span id="roomPrc">40</span></span
+      <span id="txtDescrp">{{ room.getRoomNumber() }}</span
+      ><br />
+      <span id="packs">{{ room.getMaxOccupancy() }} People</span><br />
+      <span class="spnPrc"
+        >$ <span id="roomPrc">{{ room.getPrice() }}</span></span
       ><br />
       <span id="duration">Per Day</span>
     </div>

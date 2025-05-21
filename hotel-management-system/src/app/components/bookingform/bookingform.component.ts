@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Booking } from '../../model/Booking';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-bookingform',
@@ -21,6 +22,7 @@ export class BookingformComponent {
   public numberOfPeople: number = 0;
   public price: number = 0;
   public description: string = '';
+  public userame:string=localStorage.getItem('username')||'';
   public booking: Booking = new Booking(
     0,
     this.fromDate,
@@ -28,7 +30,9 @@ export class BookingformComponent {
     this.bookingType,
     this.numberOfPeople,
     this.price,
-    this.description
+    this.description,
+    'PENDING',
+    this.userame,
   );
 
   book() {
@@ -58,11 +62,27 @@ export class BookingformComponent {
         .post<any>('http://localhost:8080/api/booking/save', this.booking, {
           headers: { Authorization: `Bearer ${token}` },
         })
-        .subscribe(
-          (data) => {
+        .subscribe((data) => {
+          if (data.message === 'saved Success!') {
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: data.message,
+              showConfirmButton: false,
+              timer: 1500,
+            });
             console.log(data);
+          }else{
+           
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: data.message,
+              footer: '<a href="#">Why do I have this issue?</a>'
+            });
           }
-        );
+          
+        });
     }
   }
 

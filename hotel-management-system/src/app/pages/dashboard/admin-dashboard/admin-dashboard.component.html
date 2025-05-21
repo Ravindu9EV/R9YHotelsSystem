@@ -1,0 +1,13 @@
+<div class="dashContainer">
+  <div class="radioPrt"></div>
+  <div class="contentPrt">
+    <div class="row">
+      <button (click)="openRoomForm()">Add Room</button>
+      <button (click)="openRoomForm(editingRoom)">Update Room</button>
+
+      <app-room-form *ngIf="isFormVisible" [room]="editingRoom"></app-room-form>
+    </div>
+  </div>
+  <p>asas</p>
+</div>
+<p>asasa</p>

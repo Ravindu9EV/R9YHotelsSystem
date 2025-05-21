@@ -24,9 +24,16 @@ export class AuthService {
   isAuthenticated(): boolean {
     return !!localStorage.getItem('jwtToken');
   }
+  
+  storeUsername(username: string): void {
+    localStorage.setItem('username', username);
+  }
 
   logout(): void {
     localStorage.removeItem('jwtToken');
+    localStorage.removeItem('username');
     alert('logout');
   }
+
+
 }
