@@ -9,12 +9,15 @@ import edu.icet.util.BookingType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -25,14 +28,16 @@ public class BookingServiceImpl implements BookingService{
     @Override
     public ResponseEntity<String> save(BookingDTO bookingDTO) {
         System.out.println(bookingDTO);
+
         try{
             if( bookingDTO.getFromDate()==null||bookingDTO.getFromDate().isEmpty()||bookingDTO.getToDate()==null|| bookingDTO.getToDate().isEmpty()||bookingDTO.getBookingType()==null || bookingDTO.getBookingType().describeConstable().isEmpty()||bookingDTO.getPrice()==null||bookingDTO.getPrice()<=0||bookingDTO.getDescription()==null ||bookingDTO.getDescription().isEmpty()){
               return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Missing field");
             }
-            User user=userRepository.getReferenceById(bookingDTO.getUser_id());
-            Booking booking=new Booking(null,bookingDTO.getBookingType(),setDate(bookingDTO.getFromDate()),setDate(bookingDTO.getToDate()),bookingDTO.getNumberOfPeople(),bookingDTO.getPrice(),bookingDTO.getDescription(),bookingDTO.getStatus(),user);
+            Optional<User> user =userRepository.findUserByUsername(bookingDTO.getUsername());
+            System.out.println(user.get());
+            Booking booking=new Booking(null,bookingDTO.getBookingType(),setDate(bookingDTO.getFromDate()),setDate(bookingDTO.getToDate()),bookingDTO.getNumberOfPeople(),bookingDTO.getPrice(),bookingDTO.getDescription(),bookingDTO.getStatus(),user.get());
            booking=repo.save(booking);
-            System.out.println(booking);
+            System.out.println("saved:"+booking);
             return ResponseEntity.ok("{\"message\":\"saved Success!\"}");
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());

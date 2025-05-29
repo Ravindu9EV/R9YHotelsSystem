@@ -9,6 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(classes = Main.class)
@@ -187,5 +190,15 @@ public class RoomServiceImplTest {
         RoomDTO response=service.findById(-1l);
         System.out.println(response);
         assertEquals(null,response);
+    }
+
+    @Test
+    void shouldReturnListOfRoomDTOs(){
+
+        //  RoomDTO roomDTO=new RoomDTO(1l,"R002",false,4,7600.00);
+
+        List<RoomDTO> response=service.getAll();
+        System.out.println(response);
+        assertEquals(response,response);
     }
 }
