@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1da0e454-46aa-4680-a259-9d2c3e1cd57b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../hotel-management-system/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../hotel-management-system/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hotel-management-system/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../hotel-management-system/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hotel-management-system/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../hotel-management-system/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hotel-management-system/src/app/components/bookingform/bookingform.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../hotel-management-system/src/app/components/bookingform/bookingform.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hotel-management-system/src/app/components/registration-form/registration-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../hotel-management-system/src/app/components/registration-form/registration-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hotel-management-system/src/app/components/registration-form/registration-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../hotel-management-system/src/app/components/registration-form/registration-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hotel-management-system/src/app/model/Booking.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../hotel-management-system/src/app/model/Booking.ts" afterDir="false" />
-    </list>
+    <list default="true" id="1da0e454-46aa-4680-a259-9d2c3e1cd57b" name="Changes" comment="fixed error in booking and rooms crud" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,12 +14,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Yasantha Ravindu &lt;99851400+ravindu9ev@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -85,6 +82,7 @@
     "JUnit.RoomServiceImplTest.shouldReturnErrorWhenUpdateWithNullObject.executor": "Run",
     "JUnit.RoomServiceImplTest.shouldReturnErrorWhenUpdateWithPriceIsMinus.executor": "Run",
     "JUnit.RoomServiceImplTest.shouldReturnErrorWhenUpdateWithPriceIsZero.executor": "Run",
+    "JUnit.RoomServiceImplTest.shouldReturnListOfRoomDTOs.executor": "Run",
     "JUnit.RoomServiceImplTest.shouldReturnMessageThatSayingSavingWasSuccess.executor": "Run",
     "JUnit.RoomServiceImplTest.shouldReturnMessageThatUpdateWasSuccess.executor": "Run",
     "JUnit.RoomServiceImplTest.shouldReturnNullWhenIdIsMinus.executor": "Run",
@@ -94,6 +92,7 @@
     "JUnit.RoomServiceImplTest.shouldReturnRoomWhenRoomIdIsCorrect.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "F:/Fiver/Hotel Management System/R9YHotels/hotel-management-backend",
@@ -101,7 +100,30 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.RoomServiceImplTest.shouldReturnNullWhenIdIsMinus">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.icet.Main" />
+      <module name="hotel-management-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.icet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoomServiceImplTest.shouldReturnListOfRoomDTOs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel-management-backend" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RoomServiceImplTest" />
+      <option name="METHOD_NAME" value="shouldReturnListOfRoomDTOs" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RoomServiceImplTest.shouldReturnNullWhenIdIsMinus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hotel-management-backend" />
       <option name="PACKAGE_NAME" value="" />
@@ -132,33 +154,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoomServiceImplTest.shouldReturnNullWhenRoomNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hotel-management-backend" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RoomServiceImplTest" />
-      <option name="METHOD_NAME" value="shouldReturnNullWhenRoomNotFound" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RoomServiceImplTest.shouldReturnRoomWhenRoomIdIsCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hotel-management-backend" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RoomServiceImplTest" />
-      <option name="METHOD_NAME" value="shouldReturnRoomWhenRoomIdIsCorrect" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.RoomServiceImplTest.shouldReturnListOfRoomDTOs" />
         <item itemvalue="JUnit.RoomServiceImplTest.shouldReturnNullWhenIdIsMinus" />
         <item itemvalue="JUnit.RoomServiceImplTest.shouldReturnNullWhenIdIsZero" />
         <item itemvalue="JUnit.RoomServiceImplTest.shouldReturnNullWhenIdIsNull" />
-        <item itemvalue="JUnit.RoomServiceImplTest.shouldReturnNullWhenRoomNotFound" />
-        <item itemvalue="JUnit.RoomServiceImplTest.shouldReturnRoomWhenRoomIdIsCorrect" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +173,21 @@
       <option name="presentableId" value="Default" />
       <updated>1744221773194</updated>
     </task>
+    <task id="LOCAL-00001" summary="fixed error in booking and rooms crud">
+      <option name="closed" value="true" />
+      <created>1748552424861</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1748552424861</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implemented CRUD functions Of Room class with Test cases" />
+    <MESSAGE value="fixed error in booking and rooms crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed error in booking and rooms crud" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -238,16 +254,6 @@
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/icet/controller/AuthController.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/icet/controller/AuthController.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/icet/service/CustomerServiceImpl.java</url>
           <line>41</line>
           <option name="timeStamp" value="29" />
@@ -261,6 +267,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/edu/icet/service/CustomerServiceImpl.java</url>
           <line>43</line>
           <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/edu/icet/controller/AuthController.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.RuntimeException" package="java.lang" />
@@ -281,6 +292,9 @@
     <SUITE FILE_PATH="coverage/hotel_management_backend$RoomServiceImplTest_shouldReturnErrorWhenRoomDTO_With_maxOccupancyIsMinus.ic" NAME="RoomServiceImplTest.shouldReturnErrorWhenRoomDTO_With_maxOccupancyIsMinus Coverage Results" MODIFIED="1747841897431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/hotel_management_backend$RoomServiceImplTest_shouldReturnErrorWhenRoomDTO_With_empty_roomNumber.ic" NAME="RoomServiceImplTest.shouldReturnErrorWhenRoomDTO_With_empty_roomNumber Coverage Results" MODIFIED="1747841541606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/hotel_management_backend$RoomServiceImplTest_shouldReturnErrorWhenUpdateWithMaxOccupancyIsZero.ic" NAME="RoomServiceImplTest.shouldReturnErrorWhenUpdateWithMaxOccupancyIsZero Coverage Results" MODIFIED="1747843571150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/hotel_management_backend$Main.ic" NAME="Main Coverage Results" MODIFIED="1748276105356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>edu.icet.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/hotel_management_backend$RoomServiceImplTest_shouldReturnMessageThatUpdateWasSuccess.ic" NAME="RoomServiceImplTest.shouldReturnMessageThatUpdateWasSuccess Coverage Results" MODIFIED="1747842455622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

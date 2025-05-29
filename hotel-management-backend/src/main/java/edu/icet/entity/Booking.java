@@ -3,10 +3,7 @@ package edu.icet.entity;
 import edu.icet.util.BookingStatus;
 import edu.icet.util.BookingType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -16,9 +13,10 @@ import java.util.Date;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Booking {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private BookingType bookingType;
     private Date fromDate;

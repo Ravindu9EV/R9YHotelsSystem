@@ -79,6 +79,7 @@ public class JwtTokenProvider {
                     .getBody()
                     .getExpiration();
         }catch(ExpiredJwtException e) {
+            //refresh token if expired
             throw new RuntimeException("Token Expired",e);
         }catch (JwtException e){
             throw new RuntimeException("Invalid Token",e);
@@ -117,7 +118,7 @@ public class JwtTokenProvider {
         }
     }
 
-    private boolean isTokenExpired(String token) {
+    public boolean isTokenExpired(String token) {
         return getExpirationDateFromToken(token).before(new Date());
     }
 

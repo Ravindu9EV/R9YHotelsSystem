@@ -19,5 +19,5 @@ public class BookingDTO {
     private Double price;
     private String description;
     private BookingStatus status;
-    private Long user_id;
+    private String username;
 }

@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,8 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private JwtTokenProvider jwtTokenPovider;
 
+    @Autowired
+    MyUserDetailService userDetailsService;
 
     @Override
     public void saveUser(RegisterRequest request) {
@@ -49,7 +52,8 @@ public class UserServiceImpl implements UserService{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(),request.getPassword()));
 
             UserDetails user=repository.findByUsername(request.getUsername()).orElseThrow(()->new UsernameNotFoundException("User Not Found!"));
-
+//            UserDetails user= userDetailsService.loadUserByUsername(request.getUsername());
+            if(jwtTokenPovider.isTokenExpired(jwtTokenPovider.generateToken(user))) return "Token Expired";
             return jwtTokenPovider.generateToken(user);
 
         }catch (Exception e){
