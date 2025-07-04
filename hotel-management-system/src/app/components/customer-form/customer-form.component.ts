@@ -11,6 +11,8 @@ import { Customer } from '../../model/Customer';
 import { CommonModule } from '@angular/common';
 import { CustomerService } from '../../services/customer.service';
 import { F } from '@angular/cdk/keycodes';
+import { min } from 'rxjs';
+import { CustomerResponse } from '../../model/CustomerResponse';
 @Component({
   selector: 'app-customer-form',
   imports: [ReactiveFormsModule, CommonModule, FormsModule],
@@ -18,9 +20,10 @@ import { F } from '@angular/cdk/keycodes';
   styleUrl: './customer-form.component.css',
 })
 export class CustomerFormComponent implements OnInit {
-  @Input() customer?: any;
+  @Input() customer?: CustomerResponse;
   @Input() isEditMode = false;
-  @Output() formSubmit = new EventEmitter<void>();
+  @Input() isSubmitting = false;
+  @Output() formSubmit = new EventEmitter<FormData>();
 
   customerForm: FormGroup;
   profileImage?: File;
@@ -39,7 +42,7 @@ export class CustomerFormComponent implements OnInit {
       email: ['', Validators.required],
       phone: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
       address: ['', Validators.required],
-      age: [0, Validators.required],
+      age: [0, Validators.required, Validators.min(18)],
       profileImage: [null],
     });
   }
@@ -47,7 +50,7 @@ export class CustomerFormComponent implements OnInit {
   ngOnInit(): void {
     if (this.customer) {
       this.customerForm?.patchValue({
-        id: this.customer.id,
+        id: this.customer.getId(),
         firstName: this.customer.getFirstName(),
         lastName: this.customer.getLastName(),
         email: this.customer.getEmail(),
@@ -57,9 +60,9 @@ export class CustomerFormComponent implements OnInit {
         age: this.customer.getAge(),
       });
 
-      // if (this.customer.getProfileImageUrl()) {
-      //   this.profileImagePreview = this.customer.getProfileImageUrl();
-      // }
+      if (this.customer?.getProfileImage()) {
+        this.profileImagePreview = this.customer.getProfileImage();
+      }
     }
 
     if (this.isEditMode) {
@@ -121,7 +124,10 @@ export class CustomerFormComponent implements OnInit {
       return;
     }
 
-    this.isEditMode = true;
+    if (this.isSubmitting) {
+      return;
+    }
+    this.isSubmitting = true;
 
     const formData = new FormData();
     formData.append('id', this.customerForm.value.id.toString());
@@ -144,13 +150,13 @@ export class CustomerFormComponent implements OnInit {
     console.log('formData: ');
     this.customerService.registerCustomer(formData).subscribe({
       next: (response) => {
-        alert('Saved!');
-        this.isEditMode = false;
-        //this.formSubmit.emit();
+        alert('Saved!' + response);
+        this.isSubmitting = false;
+        this.formSubmit.emit();
       },
       error: (error) => {
         alert('Registration Error: ' + error);
-        this.isEditMode = false;
+        this.isSubmitting = false;
       },
     });
     for (let [key, val] of formData.entries()) {

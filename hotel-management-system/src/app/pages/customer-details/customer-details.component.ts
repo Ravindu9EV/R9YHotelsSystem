@@ -4,6 +4,7 @@ import { CustomerService } from '../../services/customer.service';
 import { Customer } from '../../model/Customer';
 import { CustomerRegistrationComponent } from '../../components/customer-registration/customer-registration.component';
 import { CustomerFormComponent } from '../../components/customer-form/customer-form.component';
+import { CustomerResponse } from '../../model/CustomerResponse';
 
 @Component({
   selector: 'app-customer-details',
@@ -13,6 +14,7 @@ import { CustomerFormComponent } from '../../components/customer-form/customer-f
 })
 export class CustomerDetailsComponent implements OnInit {
   public customer?: Customer; //
+  public customerRes?: CustomerResponse;
   loading = true;
   error?: string;
 
@@ -30,7 +32,7 @@ export class CustomerDetailsComponent implements OnInit {
     this.loading = true;
     this.customerService.getCustomer(id).subscribe({
       next: (customer) => {
-        this.customer = customer;
+        this.customerRes = customer;
         this.loading = false;
       },
       error: (err) => {
