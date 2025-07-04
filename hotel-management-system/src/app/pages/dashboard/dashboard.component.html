@@ -1,7 +1,51 @@
-<p>dashboard works!</p>
-<p>asasasascnacsamcamcanc asc cmnnjnandasl</p>
+<!-- <p>dashboard works!</p> -->
+<!-- <p>asasasascnacsamcamcanc asc cmnnjnandasl</p> -->
 <!-- <router-outlet></router-outlet> -->
-<button (click)="openRoomForm()">Add Room</button>
-<button (click)="openRoomForm(editingRoom)">Update Room</button>
+<!-- <button (click)="openRoomForm()">Add Room</button> -->
+<!-- <button (click)="openRoomForm(editingRoom)">Update Room</button> -->
 
-<app-room-form *ngIf="isFormVisible" [room]="editingRoom"></app-room-form>
+<!-- <app-room-form *ngIf="isFormVisible" [room]="editingRoom"></app-room-form> -->
+
+<div class="dashoboard-container">
+  <!-- <nav class="nav-menu">
+    <a routerLink="/dashboard" class="active">Dashboard</a>
+    <a routerLink="/dilivery">Delivery</a>
+    <a routerLink="/Employes">Employees</a>
+  </nav> -->
+
+  <div class="main-content">
+    <div class="card-container">
+      <div class="card" routerLink="/room-booking">
+        <img [src]="'assets / images / food.png'" alt="" />
+        <div class="card-content">
+          <h3>Room Booking</h3>
+          <p>View and manage hotel room reservation</p>
+        </div>
+      </div>
+
+      <div class="card" routerLink="/party-space">
+        <img src="" alt="" />
+        <div class="card-content">
+          <h3>Party Space Booking</h3>
+          <p>Shedule events and functions</p>
+        </div>
+      </div>
+      <!-- food order card -->
+      <div class="card" routerLink="/food-order">
+        <img [src]="'assets / images / food.png'" alt="" />
+        <div class="card-content">
+          <h3>Food Order</h3>
+          <p>Manage Customer food orders</p>
+        </div>
+      </div>
+      <!-- employee card -->
+      <div class="card" routerLink="/employee-management">
+        <img src="" alt="" />
+        <div class="card-content">
+          <h3>Employee Management</h3>
+          <p>Manage employee information</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -41,11 +41,30 @@ export class RoomServiceService {
   }
   //get all Rooms
   getAllRooms(): Observable<Room[]> {
-    return this.http.get<Room[]>(this.apiUrl, {
-      headers: this.getAuthHeaders(),
-    });
+    return this.http
+      .get<Room[]>(this.apiUrl + '/all', {
+        headers: this.getAuthHeaders(),
+      })
+      .pipe(map((rooms) => rooms.map((room) => Room.fromJson(room))));
   }
 
+  //get available rooms
+  getAvailableRooms(): Observable<Room[]> {
+    return this.http
+      .get<Room[]>(this.apiUrl + '/available-rooms', {
+        headers: this.getAuthHeaders(),
+      })
+      .pipe(map((rooms) => rooms.map((room) => Room.fromJson(room))));
+  }
+
+  //filter rooms by price
+  filterRoomsByPrice(price: number): Observable<Room[]> {
+    return this.http
+      .get<Room[]>(this.apiUrl + `/filter-by-price/${price}`, {
+        headers: this.getAuthHeaders(),
+      })
+      .pipe(map((rooms) => rooms.map((room) => Room.fromJson(room))));
+  }
   //Get Room By Id
   getRoomById(id: number): Observable<Room> {
     return this.http.get<Room>(`${this.apiUrl}/${id}`, {

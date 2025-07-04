@@ -1,0 +1,9 @@
+.rooms{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 800px;
+    height: 400px;
+    overflow: scroll;
+background-color: aliceblue;
+}

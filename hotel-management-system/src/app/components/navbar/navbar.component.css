@@ -39,10 +39,10 @@ nav li a:hover{
     border-radius: 10px;
 }
 
-#btnLogout{
+#btn-logout{
     width: 100px;
     height: 40px;
-    /* z-index: 1000; */
+    
     background: linear-gradient(to right,#043F1F,#52f29a);
 
     border: 1px solid #76ffbb;
@@ -69,7 +69,7 @@ nav li a:hover{
     }
 
     nav li{
-        /* margin-top: 10px; */
+        
         margin: 10px 0px;
     }
     nav li:hover{
@@ -89,3 +89,125 @@ nav li a:hover{
         margin-left: -32px;
     }
 }
+
+/* ---------------------------------------------- */
+
+/* 
+
+.navbar{
+    width: 100%;
+    background-color: #22df77;
+    position: relative;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    margin:0;
+    padding: 0;
+    transition:  all 0.3s ease;
+}
+
+nav ul li {
+    margin: 0 0.5rem;
+}
+
+nav ul li a{
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #043F1F;
+    font-weight: bold;
+    display: block;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: linear-gradient(to-right,#043F1F,#419868);
+    color: #52F99D;
+}
+
+.btn-logout{
+    padding: 0.5rem 1rem;
+    background: linear-gradient(to-bottom,#4cd389,#013d1c);
+    color: #02fd7f;
+    border: 1px solid #76ffbb;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover{
+    background: linear-gradient(to-bottom,#013d1c,#4cd389);
+}
+
+.menue-toggle{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.menue-toggle span{
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #043F1F;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width:768px) {
+    .menue-toggle{
+        display: flex;
+    }
+
+    .nav ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #22df77;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        clip-path: circle(0px at 90% -10%);
+        -webkit-clip-path: circle(0px at 90% -10%);
+        transition: all 0.5s ease-out;
+        pointer-events: none;
+    }
+
+    nav ul:active{
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path:circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+
+
+    nav ul li {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a{
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .btn-logoout{
+        width: 80%;
+        margin: 0.5rem auto;
+    }
+
+} */

@@ -1,4 +1,4 @@
-<div class="dashContainer">
+<!-- <div class="dashContainer">
   <div class="radioPrt"></div>
   <div class="contentPrt">
     <div class="row">
@@ -10,4 +10,282 @@
   </div>
   <p>asas</p>
 </div>
-<p>asasa</p>
+<p>asasa</p> -->
+
+<section>
+  <div class="dashContainer">
+    <div class="header">
+      <h1>R9Y Hotel</h1>
+
+      <div class="user-info">
+        <span>Yasantha Ravindu</span>
+      </div>
+    </div>
+    <div class="dashboard-title">
+      <h2>Dashboard</h2>
+    </div>
+
+    <div class="stats-container">
+      <div class="stat-box">
+        <div class="stat-value">61</div>
+        <div class="stat-label">Rooms Available</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-value">2</div>
+        <div class="stat-label">total CCC</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">1</div>
+        <div class="stat-label">Dirty Vacant</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">60</div>
+        <div class="stat-label">Clean Vacent</div>
+      </div>
+    </div>
+
+    <div class="tables-container">
+      <div class="table-section">
+        <div class="section-title">
+          <h3>Expected Arrival</h3>
+          <div class="search-controls">
+            <input
+              type="text"
+              name=""
+              placeholder="Search"
+              class="search-input"
+              id=""
+            />
+            <button class="reset-btn">Reset: No</button>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table class="guest-table">
+            <thead>
+              <tr>
+                <th>Room Number</th>
+                <th>Guest Name</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>46778</td>
+
+                <td>132</td>
+                <td>Baldwin Austin</td>
+              </tr>
+              <tr>
+                <td>46778</td>
+
+                <td>132</td>
+                <td>Baldwin Austin</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="table-section">
+        <div class="section-title">
+          <h3>Expected Departure</h3>
+          <div class="search-controls">
+            <input
+              type="text"
+              name=""
+              placeholder="Search"
+              class="search-input"
+              id=""
+            />
+            <button class="reset-btn">Search</button>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table class="guest-table">
+            <thead>
+              <tr>
+                <th>Room Number</th>
+                <th>Guest Name</th>
+                <th>Source</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>46778</td>
+
+                <td>Baldwin Austin</td>
+                <td>46778</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>46778</td>
+
+                <td>Baldwin Austin</td>
+                <td>46778</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>46778</td>
+
+                <td>Baldwin Austin</td>
+                <td>46778</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>46778</td>
+
+                <td>Baldwin Austin</td>
+                <td>46778</td>
+                <td>50</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card section -->
+
+    <div class="room-controls">
+      <button class="room-btn" (click)="openRoomForm()">Add Room</button>
+      <button class="room-btn" (click)="openRoomForm(editingRoom)">
+        Update Room
+      </button>
+
+      <app-room-form *ngIf="isFormVisible" [room]="editingRoom"></app-room-form>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="management-section">
+    <h2>HOTEL MANAGEMENT</h2>
+    <div class="cards-container">
+      <!-- room booking card -->
+
+      <div class="management-card">
+        <h3>Room Booking</h3>
+        <div class="card-content">
+          <div class="card-header">
+            <span>Guest</span>
+            <span>Room Number</span>
+            <span>Check In</span>
+          </div>
+          <div class="card-row">
+            <span>Michael</span>
+            <span>101</span>
+            <span>Apr 26 2025</span>
+          </div>
+          <div class="card-row">
+            <span>Michael</span>
+            <span>101</span>
+            <span>Apr 26 2025</span>
+          </div>
+          <div class="card-row">
+            <span>Michael</span>
+            <span>101</span>
+            <span>Apr 26 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part space Booking -->
+      <div class="management-card">
+        <h3>Party Space</h3>
+        <div class="card-content">
+          <div class="card-header">
+            <span>Host</span>
+            <span>Space</span>
+            <span>Date</span>
+            <span>Time</span>
+          </div>
+          <div class="card-row">
+            <span>Emily</span>
+            <span>Ballroom</span>
+            <span>Apr 26 2025</span>
+            <span>10am - 5pm</span>
+          </div>
+          <div class="card-row">
+            <span>Emily</span>
+            <span>Ballroom</span>
+            <span>Apr 26 2025</span>
+            <span>10am - 5pm</span>
+          </div>
+          <div class="card-row">
+            <span>Emily</span>
+            <span>Ballroom</span>
+            <span>Apr 26 2025</span>
+            <span>10am - 5pm</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- food order card -->
+
+      <div class="management-card">
+        <h3>Food Order</h3>
+        <div class="card-content">
+          <div class="card-header">
+            <span>Food ID</span>
+            <span>Room No</span>
+            <span>Status</span>
+          </div>
+          <div class="card-row">
+            <span>F001</span>
+            <span>101</span>
+            <span class="status delivered">Delivered</span>
+          </div>
+          <div class="card-row">
+            <span>F001</span>
+            <span>101</span>
+            <span class="status in-progress">In Progress</span>
+          </div>
+
+          <div class="card-row">
+            <span>F001</span>
+            <span>101</span>
+            <span class="status pending">Pending</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="management-card">
+      <h3>Employee Management</h3>
+      <div class="card-content">
+        <div class="card-header">
+          <span>Name</span>
+          <span>Position</span>
+          <span>Status</span>
+        </div>
+        <div class="card-row">
+          <span>Alice</span>
+          <span>Manager</span>
+          <span class="status active">Active</span>
+        </div>
+        <div class="card-row">
+          <span>Alice</span>
+          <span>Manager</span>
+          <span class="status active">Active</span>
+        </div>
+        <div class="card-row">
+          <span>Alice</span>
+          <span>Manager</span>
+          <span class="status inactive">Inactive</span>
+        </div>
+      </div>
+    </div>
+    <!-- Quick Actions -->
+    <div class="management-card quick-actions">
+      <h3>Quick Actions</h3>
+      <div class="card-content">
+        <button class="action-btn">New Booking</button>
+        <button class="action-btn">New Food Order</button>
+        <button class="action-btn">New Employee</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,4 +1,4 @@
-<div type="form" class="bookingForm" form-control>
+<!-- <div type="form" class="bookingForm" form-control>
   <div class="row">
     <label for="inpFrom">From: </label>
     <input type="date" name="" id="inpFrom" [(ngModel)]="fromDate" />
@@ -27,4 +27,92 @@
     <input type="text" name="" id="inpDescrp" [(ngModel)]="description" />
   </div>
   <button class="btnConfirm" (click)="book()">Confirm</button>
+</div> -->
+
+<div class="booking-form">
+  <div class="form-title">Create New Booking</div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="inpForm"> Check-in Date</label>
+      <input
+        type="date"
+        name=""
+        id="inpFrom"
+        [(ngModel)]="fromDate"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="inpTo">Check-out Date</label>
+      <input
+        type="date"
+        name=""
+        id="inpTo"
+        [(ngModel)]="toDate"
+        class="form-control"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="inpPeople">Number of Guests</label>
+      <input
+        type="number"
+        name=""
+        id="inpPeople"
+        [(ngModel)]="numberOfPeople"
+        class="form-control"
+        (change)="calculatePrice()"
+        min="1"
+        max="10"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="bookingType">Booking Type</label>
+      <select
+        name=""
+        id="bookingType"
+        [(ngModel)]="bookingType"
+        (click)="showV()"
+        class="form-control"
+        required
+      >
+        <option value="" disabled selected>Select Booking type</option>
+        <option value="ROOM">Room Booking</option>
+        <option value="PARTY_SPACE">Party Space</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inpDescrp">Special Requests</label>
+    <textarea
+      name=""
+      id="inpDescrp"
+      [(ngModel)]="description"
+      class="form-control"
+      rows="3"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="inpPrice">Total Price</label>
+    <div class="price-display">
+      <span class="currency"></span>
+      <span class="amount">{{
+        calculatedPrice | currency : "USD" : "symbol" : "1.0-0"
+      }}</span>
+
+      <div class="price-breakdown" *ngIf="priceBreakdown">
+        {{ priceBreakdown }}
+      </div>
+    </div>
+  </div>
+  <button class="btn-confirm" (click)="book()">Confirm Booking</button>
 </div>

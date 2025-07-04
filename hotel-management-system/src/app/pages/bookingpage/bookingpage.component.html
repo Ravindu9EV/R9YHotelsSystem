@@ -1,4 +1,4 @@
-<div class="mainCont">
+<!-- <div class="mainCont">
   <div class="leftCont">
     <div class="searchCont">
       <input type="text" name="" id="inpSearch" [(ngModel)]="txtSearch" />
@@ -20,5 +20,32 @@
   </div>
   <div class="rightCont">
     <app-bookingform></app-bookingform>
+  </div>
+</div> -->
+<div class="booking-container">
+  <!--Main content Area  -->
+  <div class="main-content">
+    <div class="search-section">
+      <div class="search-box">
+        <input
+          type="text"
+          [(ngModel)]="txtSearch"
+          placeholder="Search booking"
+          name=""
+          id=""
+        />
+        <button class="search-btn" (click)="search()">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Booking form -->
+    <div class="booking-form-section">
+      <div class="form-card">
+        <!-- <h2>Create New Booking</h2> -->
+        <app-bookingform></app-bookingform>
+      </div>
+    </div>
   </div>
 </div>

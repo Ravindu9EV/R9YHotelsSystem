@@ -35,7 +35,7 @@ export class RoomFormComponent implements OnInit {
         this.room?.getRoomNumber() || '',
         [Validators.required, Validators.maxLength(20)],
       ],
-      is_booked: [this.room?.getIs_booked() || false],
+      is_booked: [this.room?.getIsBooked() || false],
       maxOccupancy: [
         this.room?.getMaxOccupancy() || 1,
         [Validators.required, Validators.min(0)],

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+// import {jwtHelper} from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,7 @@ export class AuthService {
   isAuthenticated(): boolean {
     return !!localStorage.getItem('jwtToken');
   }
-  
+
   storeUsername(username: string): void {
     localStorage.setItem('username', username);
   }
@@ -34,6 +35,4 @@ export class AuthService {
     localStorage.removeItem('username');
     alert('logout');
   }
-
-
 }

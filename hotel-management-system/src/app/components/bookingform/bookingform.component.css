@@ -69,10 +69,141 @@
     margin-left: -1px;
 } */
 
-.btnConfirm{
-    width: 100px;
-    background-color: aquamarine;
-    margin-left: 40%;
+.row{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.booking-form{
+    max-width:800px;
+    margin:0 auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.649);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+   
+    height: 85vh;
+    margin-top: -30px;
+     overflow: scroll;
+}
+
+.form-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.form-group{
+    margin-bottom: 25px;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #34495e;
+}
+
+.form-control{
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.form-control:focus {
+    border-color: #34db66;
+    box-shadow: 0 0 0 3px rgba(52,152,219, 0.2);
+    outline: none;
+
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 15px;
+}
+.price-input{
+    position: relative;
+}
+.price-input .currency {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #3498db;
+}
+
+.price-input input {
+    padding-left: 30px;
+}
+
+textarea .form-control {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.price-display {
+    padding: 12px 15px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.price-display .amount{
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #2c3e50;
+}
+
+.price-breakdown {
+    font-size: 0.8em;
+    color: #7f8c8d;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px dashed #ddd;
+}
+
+.form-group:has(.price-display) {
+    background-color: #f5f9ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.btn-confirm{
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg,#34db55,#2980b9);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:  all 0.3s ease;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.btn-confirm:hover{
+    background: linear-gradient(135deg,#2980b9,#34db55);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(41, 185, 99, 0.3);
+}
+
+.btn-confirm:active{
+    transform: translateY(0);
 }
 
 @media screen and (max-width: 768px) {
@@ -88,5 +219,27 @@
     .bookingForm .row input{
         
         width: 200px;
+    }
+
+
+}
+
+@media screen and (max-width:768px) {
+    .booking-form{
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .booking-form{
+        padding: 15px;
+    }
+
+    .form-title{
+        font-size: 20px;
+    }
+
+    .form-control{
+        padding: 10px 12px;
     }
 }

@@ -1,0 +1,16 @@
+<div class="registration-container">
+  <h2>Create New Customer Accout</h2>
+
+  <!-- <app-customer-form
+    (formSubmit)="onFormSubmit($event)"
+    [isEditMode]="false"
+  ></app-customer-form> -->
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div *ngIf="loading" class="loading-overlay">
+    <!-- <mat-spiner></mat-spiner> -->
+  </div>
+</div>

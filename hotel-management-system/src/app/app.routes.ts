@@ -7,6 +7,7 @@ import { BookingpageComponent } from './pages/bookingpage/bookingpage.component'
 import { RoomspageComponent } from './pages/roomspage/roomspage.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import { AdminDashboardComponent } from './pages/dashboard/admin-dashboard/admin-dashboard.component';
+import { CustomerDetailsComponent } from './pages/customer-details/customer-details.component';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,11 @@ export const routes: Routes = [
   {
     path: 'admin-dashboard',
     component: AdminDashboardComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'customer-det',
+    component: CustomerDetailsComponent,
     canActivate: [authGuard],
   },
 ];

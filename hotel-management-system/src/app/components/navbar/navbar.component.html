@@ -1,14 +1,21 @@
 <div class="navbar">
-  <nav>
+  <nav class="nav-menu">
+    <!-- <div class="menu-toggle" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div> -->
     <ul>
       <li><a [routerLink]="['/']">Home</a></li>
       <li><a [routerLink]="['/booking']">Booking</a></li>
       <li><a [routerLink]="['/rooms']">Rooms</a></li>
       <li><a [routerLink]="['/rooms']">Party Spaces</a></li>
-      <li><a>Foods</a></li>
+      <li><a [routerLink]="['/foods']">Foods</a></li>
     </ul>
-    <div *ngIf="authService.isAuthenticated()">
-      <button (click)="logout()" id="btnLogout">Logout</button>
+    <div class="logout-container" *ngIf="authService.isAuthenticated()">
+      <button (click)="logout()" id="btn-logout" class="logout-btn">
+        Logout
+      </button>
     </div>
   </nav>
 </div>

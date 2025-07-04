@@ -25,6 +25,12 @@ export class RoomsCardComponent implements OnInit {
     this.roomService.getAllRooms().subscribe({
       next: (data: Room[]) => {
         this.rooms = data;
+        console.log(this.rooms);
+        console.log(this.rooms[0].getIsBooked());
+
+        this.rooms.forEach((r) => {
+          if (r) console.log('dsds' + r.getMaxOccupancy() + 'ko');
+        });
       },
       error: (err) => {
         console.error('Error fetching rooms: ', err);

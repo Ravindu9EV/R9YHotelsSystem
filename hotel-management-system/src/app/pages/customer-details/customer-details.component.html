@@ -1,0 +1,52 @@
+<!-- <div class="customer-details-container">
+  <div *ngIf="loading" class="loading-spinner">
+    <div class="spinner"></div>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    <div class="error-card">
+      <div class="error-content">
+        <span class="error-icon">⚠️</span>
+        {{ error }}
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="customer && !loading" class="customer-card">
+    <div class="card-header">
+      <div class="profile-image-container">
+        <img
+          [src]="
+            customer?.getProfileImageUrl() ||
+            'assets/images/default-profile.png'
+          "
+          alt="Profile Picture"
+          class="profile-image"
+        />
+      </div>
+      <div class="card-title"></div>
+      {{ customer?.getFirstName() }} {{ customer?.getLastName() }}
+    </div>
+    <div class="card-subtitle">{{ customer?.getEmail() }}</div>
+  </div>
+
+  <div class="card-content">
+    <div class="customer-info">
+      <div class="info-item">
+        <div class="icon">📞</div>
+        <span>{{ customer?.getPhone() || "Not provided" }}</span>
+      </div>
+
+      <div class="info-item" *ngIf="customer?.getAddress()">
+        <div class="icon">location_on</div>
+        <span>{{ customer?.getAddress() }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-actions">
+    <button mat-raised-button color="primary">Edit Profile</button>
+  </div>
+</div> -->
+
+<app-customer-form></app-customer-form>
